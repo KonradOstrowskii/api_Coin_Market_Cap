@@ -12,8 +12,7 @@ def read_and_process_data():
     df = pd.DataFrame(data["data"])
 
     # Select desired columns (ID renamed to cmc_id for clarity)
-    df = df[["id", "name", "symbol", "slug", "circulating_supply"]]
-    df.rename(columns={"id": "cmc_id"}, inplace=True)
+    df = df[["name", "symbol", "slug", "circulating_supply","total_supply"]]
 
     # Convert circulating supply to human-readable format (millions/billions)
     def format_supply(value):
@@ -25,7 +24,7 @@ def read_and_process_data():
             return str(value)
 
     df["circulating_supply"] = df["circulating_supply"].apply(format_supply)
-
+    df["total_supply"] = df["total_supply"].apply(format_supply)
     return df
 
 
