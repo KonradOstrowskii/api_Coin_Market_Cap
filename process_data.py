@@ -34,7 +34,7 @@ def read_and_process_data():
 
     def extract_decimal(input_float):
         integer_part, decimal_part = str(input_float).split('.')
-        return f"{integer_part}.{decimal_part[:2]}"
+        return f"{integer_part}.{decimal_part[:2]} $"
 
 
     df["circulating_supply"] = df["circulating_supply"].apply(format_supply)
