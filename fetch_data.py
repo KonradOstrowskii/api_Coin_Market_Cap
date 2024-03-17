@@ -3,7 +3,7 @@ import json
 import os
 
 # API Settings
-api_key =   os.environ.get("X_CMC_PRO_API_KEY")# Replace with your CoinMarketCap API key
+api_key = "1e4c09c2-3be3-4abc-949d-fb9eb5900456"
 
 # API URL with parameters
 url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest"
