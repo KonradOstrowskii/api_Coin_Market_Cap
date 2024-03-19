@@ -1,0 +1,28 @@
+import requests
+import json
+
+def fetch_metahero_data(api_key):
+    url = f"https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest"
+    parameters = {
+      'symbol': 'HERO',
+      'convert': 'USD'
+    }
+    headers = {
+      'Accepts': 'application/json',
+      'X-CMC_PRO_API_KEY': api_key,
+    }
+    response = requests.get(url, headers=headers, params=parameters)
+    data = response.json()
+    return data
+
+if __name__ == "__main__":
+    api_key = "1e4c09c2-3be3-4abc-949d-fb9eb5900456" 
+    metahero_data = fetch_metahero_data(api_key)
+    if metahero_data.get("status") and metahero_data["status"]["error_code"] == 0:
+        crypto_data = fetch_metahero_data(api_key)
+        metahero_info = metahero_data["data"]["HERO"]
+        print(json.dumps(metahero_info, indent=2))
+        with open("metahero_data.json", "w") as f:
+            json.dump(crypto_data, f)
+    else:
+        print("Failed to fetch Metahero data.")
