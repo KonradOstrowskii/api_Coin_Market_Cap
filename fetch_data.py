@@ -3,7 +3,7 @@ import json
 import os
 
 # API Settings
-api_key = "1e4c09c2-3be3-4abc-949d-fb9eb5900456"
+api_key = ""
 
 # API URL with parameters
 url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest"
@@ -16,7 +16,7 @@ headers = {
     "X-CMC_PRO_API_KEY": api_key,
 }
 
-
+@time
 def fetch_crypto_data():
     """Fetches data from CoinMarketCap API and returns it as a dictionary."""
 
