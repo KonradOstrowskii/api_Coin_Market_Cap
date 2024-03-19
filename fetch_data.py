@@ -3,7 +3,7 @@ import json
 import os
 
 # API Settings
-api_key = ""
+api_key = "API_COIN_MARKET_CAP"
 
 # API URL with parameters
 url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest"
